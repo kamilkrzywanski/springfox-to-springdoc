@@ -20,6 +20,6 @@ public class ResponseUtils {
 
     public static boolean isArraySchemaRequired(String responseContainer) {
         // TODO handle MAP
-        return LIST.equals(responseContainer) || SET.equals(responseContainer);
+        return LIST.equalsIgnoreCase(responseContainer) || SET.equalsIgnoreCase(responseContainer);
     }
 }

@@ -31,11 +31,19 @@ public class ApiMigrator extends AbstractAnnotationMigrator {
                 tags.add(pair.getValue().asStringLiteralExpr().getValue());
             } else if (Attributes.TAGS.equals(name)) {
                 tags.addAll(getTags(pair));
+            } else if(Attributes.DESCRIPTION.equals(name)){
+                expr.getPairs().add(new MemberValuePair(pair.getName().asString(),pair.getValue()));
             }
         }
         if (tags.size() == 1) {
             expr.setName(Tag.class.getSimpleName());
             expr.addPair(Attributes.NAME, new StringLiteralExpr(tags.get(0)));
+            return;
+        }
+
+        if (tags.isEmpty()) {
+            expr.setName(Tag.class.getSimpleName());
+            expr.addPair(Attributes.NAME, new StringLiteralExpr(""));
             return;
         }
 

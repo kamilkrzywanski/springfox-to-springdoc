@@ -19,6 +19,12 @@ public class ApiModelPropertyMigrator extends AbstractAnnotationMigrator {
             if (Attributes.VALUE.equals(name)) {
                 pair.setName(Attributes.DESCRIPTION);
             }
+            if (Attributes.NOTES.equals(name)) {
+                pair.setName(Attributes.DESCRIPTION);
+            }
+            if (Attributes.ALLOW_EMPTY_VALUE.equals(name)) {
+                pair.setName(Attributes.REQUIRED);
+            }
         }
     }
 

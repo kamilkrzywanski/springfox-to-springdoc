@@ -2,14 +2,11 @@ package mobiliz.tospringdoc.migrator.impl;
 
 import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.NodeList;
-import com.github.javaparser.ast.expr.MarkerAnnotationExpr;
-import com.github.javaparser.ast.expr.MemberValuePair;
-import com.github.javaparser.ast.expr.NormalAnnotationExpr;
-import com.github.javaparser.ast.expr.SimpleName;
-import com.github.javaparser.ast.expr.StringLiteralExpr;
+import com.github.javaparser.ast.expr.*;
 import com.github.javaparser.ast.nodeTypes.NodeWithAnnotations;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import java.util.List;
 import mobiliz.tospringdoc.core.Attributes;
@@ -30,6 +27,9 @@ public class ApiOperationMigrator extends AbstractAnnotationMigrator {
         for (MemberValuePair pair : expr.getPairs()) {
             String name = pair.getName().asString();
             switch (name) {
+                case Attributes.NICKNAME:
+                    pair.setName(Attributes.OPERATIONID);
+                    break;
                 case Attributes.VALUE:
                     pair.setName(new SimpleName(Attributes.SUMMARY));
                     break;
@@ -41,12 +41,27 @@ public class ApiOperationMigrator extends AbstractAnnotationMigrator {
                     break;
                 case Attributes.RESPONSE_CONTAINER:
                     responseContainer = pair.getValue().asStringLiteralExpr().getValue();
+                    break;
+                case Attributes.AUTHORIZATIONS:
+                    pair.setName(Attributes.SECURITY);
+                    NormalAnnotationExpr expr1;
+                    if(pair.getValue() instanceof ArrayInitializerExpr arrayInitializerExpr)
+                        expr1 = arrayInitializerExpr.getValues().get(0).asNormalAnnotationExpr();
+                    else
+                        expr1 = pair.getValue().asNormalAnnotationExpr();
+                    createSecurity(expr1);
+                    break;
             }
         }
         if (response != null) {
             applyResponseOk(expr, response, responseContainer);
         }
         expr.getPairs().removeIf(pair -> Attributes.RESPONSE.equals(pair.getNameAsString()) || Attributes.RESPONSE_CONTAINER.equals(pair.getNameAsString()));
+    }
+
+    private void createSecurity(Expression value) {
+        AuthorizationMigrator authorizationMigrator = new AuthorizationMigrator();
+        authorizationMigrator.migrate((NormalAnnotationExpr) value);
     }
 
     @Override

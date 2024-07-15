@@ -22,7 +22,13 @@ public final class Attributes {
     public static final String SUMMARY = "summary";
     public static final String TAGS = "tags";
     public static final String VALUE = "value";
-
+    public static final String ALLOWABLE_VALUES = "allowableValues";
+    public static final String AUTHORIZATIONS = "authorizations";
+    public static final String SCOPE = "scope";
+    public static final String SCOPES = "scopes";
+    public static final String NICKNAME = "nickname";
+    public static final String OPERATIONID = "operationId";
+    public static final String SECURITY = "security";
     private Attributes() {
     }
 }
