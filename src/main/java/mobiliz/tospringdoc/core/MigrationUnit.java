@@ -3,8 +3,8 @@ package mobiliz.tospringdoc.core;
 import com.github.javaparser.ast.CompilationUnit;
 
 public class MigrationUnit {
-    private String relativePath;
-    private CompilationUnit compilationUnit;
+    private final String relativePath;
+    private final CompilationUnit compilationUnit;
 
     public MigrationUnit(String relativePath, CompilationUnit compilationUnit) {
         this.relativePath = relativePath;

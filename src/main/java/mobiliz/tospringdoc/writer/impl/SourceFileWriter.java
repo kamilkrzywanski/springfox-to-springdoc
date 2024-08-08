@@ -28,6 +28,9 @@ public class SourceFileWriter implements SourceWriter {
 
         DefaultPrettyPrinter printer =
                 new DefaultPrettyPrinter(new DefaultPrinterConfiguration());
+        // Uncomment the following when javaparser 3.26.2 is released
+        // i've added a feature to print arrays of annotations with indentation
+        //https://github.com/javaparser/javaparser/pull/4491
 //                        .addOption(new DefaultConfigurationOption(DefaultPrinterConfiguration.ConfigOption.INDENT_PRINT_ARRAYS_OF_ANNOTATIONS)));
 
         FileWriter fileWriter = new FileWriter(file);

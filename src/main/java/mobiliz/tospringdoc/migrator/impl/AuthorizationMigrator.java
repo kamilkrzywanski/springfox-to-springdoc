@@ -5,10 +5,8 @@ import io.swagger.annotations.Authorization;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import mobiliz.tospringdoc.core.Attributes;
 import mobiliz.tospringdoc.migrator.AbstractAnnotationMigrator;
-import mobiliz.tospringdoc.util.NodeUtils;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class AuthorizationMigrator extends AbstractAnnotationMigrator {
@@ -33,8 +31,8 @@ public class AuthorizationMigrator extends AbstractAnnotationMigrator {
     }
 
     private Expression createScopes(ArrayInitializerExpr n){
-        for (final Iterator<Expression> i = n.getValues().iterator(); i.hasNext(); ) {
-            NormalAnnotationExpr annotationExpr = i.next().asNormalAnnotationExpr();
+        for (Expression expression : n.getValues()) {
+            NormalAnnotationExpr annotationExpr = expression.asNormalAnnotationExpr();
             List<MemberValuePair> pairs = new ArrayList<>(annotationExpr.getPairs());
             ArrayInitializerExpr expr = new ArrayInitializerExpr();
             for (MemberValuePair pair : pairs) {

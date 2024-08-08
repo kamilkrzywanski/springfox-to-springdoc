@@ -15,7 +15,7 @@ import springfox.documentation.annotations.ApiIgnore;
 
 public class ToSpringDocVisitor extends ModifierVisitor<Object> {
 
-    private static Map<String, AbstractAnnotationMigrator> ANNO_MIGRATE_MAP = new HashMap<>();
+    private static final Map<String, AbstractAnnotationMigrator> ANNO_MIGRATE_MAP = new HashMap<>();
 
     static {
         ANNO_MIGRATE_MAP.put(Api.class.getSimpleName(), new ApiMigrator());
