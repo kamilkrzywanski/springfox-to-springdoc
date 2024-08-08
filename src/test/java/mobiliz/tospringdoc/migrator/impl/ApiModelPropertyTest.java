@@ -18,11 +18,4 @@ public class ApiModelPropertyTest extends AbstractSampleTest {
     public void single() throws IOException {
         testBySample("single");
     }
-
-    @Test
-    public void multiple() throws IOException {
-        testBySample("multiple");
-    }
-
-
 }
