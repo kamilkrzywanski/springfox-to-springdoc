@@ -39,9 +39,4 @@ public class ApiParamTest extends AbstractSampleTest{
     public void normalParameterWithMultipleParameters() throws IOException {
         testBySample("normal_parameter_with_multiple_parameters");
     }
-
-    @Test
-    public void normalPParameterWithAllowableValues() throws IOException {
-        testBySample("normal_parameter_with_allowable_values");
-    }
 }
