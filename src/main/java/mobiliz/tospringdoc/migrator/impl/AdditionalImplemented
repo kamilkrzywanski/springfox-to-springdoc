@@ -1,7 +1,0 @@
-              @ApiImplicitParam(name = "read", dataType = "string", allowableValues = "READ, UNREAD, ALL", paramType = "query", value = "Read status"),
-TO:
-        @Parameter(name = "read", schema = @Schema(allowableValues = { "READ", "UNREAD", "ALL" }), in = ParameterIn.QUERY, description = "Read status"),
-
-
-
-@Security content

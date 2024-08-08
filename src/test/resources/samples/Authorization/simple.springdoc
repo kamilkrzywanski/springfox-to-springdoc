@@ -1,0 +1,13 @@
+package mobiliz.tospringdoc;
+
+import io.swagger.annotations.AuthorizationScope;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+
+public class TestController {
+
+    @Operation(summary = "test", security = { @SecurityRequirement(name = "oauth2schema", scopes = { "read" }) })
+    public Domino method() {
+        return null;
+    }
+}

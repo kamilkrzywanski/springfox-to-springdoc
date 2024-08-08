@@ -1,0 +1,16 @@
+package mobiliz.tospringdoc;
+
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Authorization;
+import io.swagger.annotations.AuthorizationScope;
+
+public class TestController {
+
+    @ApiOperation(value = "test", 
+            authorizations = {@Authorization(value = "oauth2schema", scopes = {
+            @AuthorizationScope(scope = "read", description = "Read access")
+    })})
+    public Domino method() {
+        return null;
+    }
+}

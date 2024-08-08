@@ -4,16 +4,14 @@ import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.expr.*;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
+import io.swagger.v3.oas.annotations.media.Schema;
+import mobiliz.tospringdoc.core.Attributes;
+import mobiliz.tospringdoc.migrator.AbstractAnnotationMigrator;
+
 import java.lang.annotation.Annotation;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import mobiliz.tospringdoc.core.Attributes;
-import mobiliz.tospringdoc.core.NodeFactory;
-import mobiliz.tospringdoc.migrator.AbstractAnnotationMigrator;
-import mobiliz.tospringdoc.util.NodeUtils;
 
 public abstract class AbstractApiParamMigrator extends AbstractAnnotationMigrator {
 

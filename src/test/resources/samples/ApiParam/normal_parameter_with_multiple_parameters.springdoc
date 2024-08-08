@@ -2,7 +2,7 @@ import io.swagger.v3.oas.annotations.Parameter;
 
 public class TestController {
 
-    public Domino getDomino(@Parameter(name = "dominoParamName", required = true, description = "getDomino Description") String name) {
+    public Domino getDomino(@Parameter(name = "dominoParamName", required = true, description = "getDomino Description", schema = @Schema(allowableValues = { "ACTIVE", "INACTIVE", "BANNED" })) String name) {
         return null;
     }
 }

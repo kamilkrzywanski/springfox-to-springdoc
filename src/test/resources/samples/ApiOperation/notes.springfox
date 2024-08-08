@@ -2,7 +2,7 @@ import io.swagger.annotations.ApiOperation;
 
 public class TestController {
 
-    @ApiOperation(value = "a service method", notes = "some note")
+    @ApiOperation(value = "a service method", notes = "some note", nickname = "methodName")
     public Domino method() {
         return null;
     }

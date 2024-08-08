@@ -21,7 +21,6 @@ public class ToSpringDocVisitor extends ModifierVisitor<Object> {
         ANNO_MIGRATE_MAP.put(Api.class.getSimpleName(), new ApiMigrator());
         ANNO_MIGRATE_MAP.put(ApiIgnore.class.getSimpleName(), new ApiIgnoreMigrator());
         ANNO_MIGRATE_MAP.put(ApiImplicitParam.class.getSimpleName(), new ApiImplicitParamMigrator());
-        ANNO_MIGRATE_MAP.put(ApiImplicitParams.class.getSimpleName(), new ApiImplicitParamsMigrator());
         ANNO_MIGRATE_MAP.put(ApiModel.class.getSimpleName(), new ApiModelMigrator());
         ANNO_MIGRATE_MAP.put(ApiModelProperty.class.getSimpleName(), new ApiModelPropertyMigrator());
         ANNO_MIGRATE_MAP.put(ApiOperation.class.getSimpleName(), new ApiOperationMigrator());

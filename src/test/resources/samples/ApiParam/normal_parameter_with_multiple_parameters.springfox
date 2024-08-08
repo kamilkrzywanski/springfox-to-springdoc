@@ -2,7 +2,7 @@ import io.swagger.annotations.ApiParam;
 
 public class TestController {
 
-    public Domino getDomino(@ApiParam(name = "dominoParamName", required = true, value = "getDomino Description") String name) {
+    public Domino getDomino(@ApiParam(name = "dominoParamName", required = true, value = "getDomino Description", allowableValues = "ACTIVE,INACTIVE,BANNED") String name) {
         return null;
     }
 }

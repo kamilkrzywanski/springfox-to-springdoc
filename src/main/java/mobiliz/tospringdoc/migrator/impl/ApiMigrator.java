@@ -40,7 +40,7 @@ public class ApiMigrator extends AbstractAnnotationMigrator {
             expr.addPair(Attributes.NAME, new StringLiteralExpr(tags.get(0)));
             return;
         }
-
+        //When there is no tag, we should create a Tags annotation
         if (tags.isEmpty()) {
             expr.setName(Tag.class.getSimpleName());
             expr.addPair(Attributes.NAME, new StringLiteralExpr(""));
