@@ -1,11 +1,12 @@
 package mobiliz.tospringdoc;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemErr;
 import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemOut;
 
 
-import org.junit.Assert;
-import org.junit.Test;
 
 public class MainTest {
 
@@ -19,7 +20,7 @@ public class MainTest {
             " -i,--in-place    migrate files in place\n" +
             " -o,--out <arg>   write migrated source instead of stdout. This option is\n" +
             "                  discarded if in-place option set.\n";
-        Assert.assertEquals(expected, out);
+        Assertions.assertEquals(expected, out);
     }
 
     @Test
@@ -27,6 +28,6 @@ public class MainTest {
         String err = tapSystemErr(() -> {
             Main.main();
         });
-        Assert.assertEquals("ERROR: source is not specified.\n", err);
+        Assertions.assertEquals("ERROR: source is not specified.\n", err);
     }
 }

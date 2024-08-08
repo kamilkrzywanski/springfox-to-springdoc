@@ -8,7 +8,7 @@ import java.lang.annotation.Annotation;
 import java.nio.charset.StandardCharsets;
 import mobiliz.tospringdoc.migrator.ToSpringDocVisitor;
 import org.apache.commons.io.IOUtils;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 public abstract class AbstractSampleTest {
     public static final String SAMPLE_PACKAGE = "samples";
@@ -28,6 +28,6 @@ public abstract class AbstractSampleTest {
         toSpringDoc.visit(compilationUnit, null);
         String migratedSource = compilationUnit.toString();
         String expectedSource = IOUtils.toString(this.getClass().getResourceAsStream(docPath), StandardCharsets.UTF_8);
-        Assert.assertEquals(expectedSource, migratedSource);
+        Assertions.assertEquals(expectedSource, migratedSource);
     }
 }

@@ -4,8 +4,8 @@ import com.github.javaparser.ast.expr.MemberValuePair;
 import com.github.javaparser.ast.expr.NormalAnnotationExpr;
 import com.github.javaparser.ast.expr.StringLiteralExpr;
 import mobiliz.tospringdoc.core.Attributes;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class NodeUtilsTest {
 
@@ -15,12 +15,12 @@ public class NodeUtilsTest {
         expr.addPair(Attributes.NAME, new StringLiteralExpr("hede"));
         expr.addPair(Attributes.RESPONSE_CODE, new StringLiteralExpr("200"));
         MemberValuePair pair = NodeUtils.getPair(expr, Attributes.RESPONSE_CODE);
-        Assert.assertEquals(Attributes.RESPONSE_CODE, pair.getNameAsString());
-        Assert.assertEquals("200", pair.getValue().asStringLiteralExpr().getValue());
+        Assertions.assertEquals(Attributes.RESPONSE_CODE, pair.getNameAsString());
+        Assertions.assertEquals("200", pair.getValue().asStringLiteralExpr().getValue());
     }
 
     @Test
     public void returnsNullIfPairDoesNotExist() {
-        Assert.assertNull(NodeUtils.getPair(new NormalAnnotationExpr(), Attributes.NAME));
+        Assertions.assertNull(NodeUtils.getPair(new NormalAnnotationExpr(), Attributes.NAME));
     }
 }

@@ -27,8 +27,8 @@ public class SourceFileWriter implements SourceWriter {
         }
 
         DefaultPrettyPrinter printer =
-                new DefaultPrettyPrinter(new DefaultPrinterConfiguration()
-                        .addOption(new DefaultConfigurationOption(DefaultPrinterConfiguration.ConfigOption.INDENT_PRINT_ARRAYS_OF_ANNOTATIONS)));
+                new DefaultPrettyPrinter(new DefaultPrinterConfiguration());
+//                        .addOption(new DefaultConfigurationOption(DefaultPrinterConfiguration.ConfigOption.INDENT_PRINT_ARRAYS_OF_ANNOTATIONS)));
 
         FileWriter fileWriter = new FileWriter(file);
         fileWriter.write(printer.print(migrationUnit.getCompilationUnit()));

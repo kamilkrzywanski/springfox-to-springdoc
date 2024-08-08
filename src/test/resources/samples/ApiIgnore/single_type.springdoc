@@ -1,6 +1,6 @@
 import io.swagger.v3.oas.annotations.Hidden;
 
-// some description
+//some description
 @Hidden
 public class TestController {
 }

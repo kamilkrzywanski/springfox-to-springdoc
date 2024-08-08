@@ -2,7 +2,7 @@ package mobiliz.tospringdoc.migrator.impl;
 
 import io.swagger.annotations.ApiOperation;
 import java.io.IOException;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class ApiOperationTest extends AbstractSampleTest {
     public ApiOperationTest() {

@@ -1,7 +1,7 @@
 package mobiliz.tospringdoc.migrator.impl;
 
 import java.io.IOException;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import springfox.documentation.annotations.ApiIgnore;
 
 public class ApiIgnoreTest extends AbstractSampleTest {

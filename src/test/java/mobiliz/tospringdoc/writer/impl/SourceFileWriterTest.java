@@ -7,8 +7,7 @@ import java.nio.charset.StandardCharsets;
 import mobiliz.tospringdoc.core.MigrationUnit;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
 public class SourceFileWriterTest extends AbstractSourceWriterTest {
@@ -21,7 +20,7 @@ public class SourceFileWriterTest extends AbstractSourceWriterTest {
         SourceFileWriter sourceFileWriter = new SourceFileWriter(tmpDir);
         sourceFileWriter.write(new MigrationUnit(relativePath, compilationUnit));
         String actual = IOUtils.toString(new FileInputStream(tmpDir + relativePath), StandardCharsets.UTF_8);
-        Assert.assertEquals(sourceCode, actual);
+        Assertions.assertEquals(sourceCode, actual);
     }
 
     @Test
